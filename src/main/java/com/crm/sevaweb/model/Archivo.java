@@ -1,34 +1,39 @@
-
 package com.crm.sevaweb.model;
 
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name="archivo")
-public class Archivo implements Serializable{
- 
+@Table(name = "archivo")
+public class Archivo implements Serializable {
+
     @Id
     @GeneratedValue
-    @Column(name="id")
+    @Column(name = "id")
     private Integer id;
     
-    @Column(name="idHistoria")
+    @Column(name = "idHistoria")
     private Integer idHistoria;
     
-    @Column(name="ruta")
+    @Column(name = "ruta")
     private String ruta;
     
-    @Column(name="mime")
+    @Column(name = "mime")
     private String mime;
     
-    @Column(name="tamanio")
+    @Column(name = "tamanio")
     private Integer tamanio;
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_bitacora")
+    private Bitacora bitacora;
 
     public Integer getId() {
         return id;
@@ -69,6 +74,4 @@ public class Archivo implements Serializable{
     public void setTamanio(Integer tamanio) {
         this.tamanio = tamanio;
     }
-  
-    
 }

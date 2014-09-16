@@ -1,5 +1,6 @@
 package com.crm.sevaweb.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +13,7 @@ import javax.persistence.Temporal;
     
 @Entity
 @Table(name = "persona")
-public class Persona {
+public class Persona implements Serializable {
     
     @Id
     @GeneratedValue
