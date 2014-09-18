@@ -19,9 +19,6 @@ public class Archivo implements Serializable {
     @Column(name = "id")
     private Integer id;
     
-    @Column(name = "idHistoria")
-    private Integer idHistoria;
-    
     @Column(name = "ruta")
     private String ruta;
     
@@ -35,20 +32,20 @@ public class Archivo implements Serializable {
     @JoinColumn(name = "id_bitacora")
     private Bitacora bitacora;
 
+    public Bitacora getBitacora() {
+        return bitacora;
+    }
+
+    public void setBitacora(Bitacora bitacora) {
+        this.bitacora = bitacora;
+    }
+
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Integer getIdHistoria() {
-        return idHistoria;
-    }
-
-    public void setIdHistoria(Integer idHistoria) {
-        this.idHistoria = idHistoria;
     }
 
     public String getRuta() {
@@ -74,4 +71,7 @@ public class Archivo implements Serializable {
     public void setTamanio(Integer tamanio) {
         this.tamanio = tamanio;
     }
+    
+    
+    
 }

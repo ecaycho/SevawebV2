@@ -62,9 +62,9 @@ public class Contacto implements Serializable {
     @Column(name = "website")
     private String website;
     
-    @ManyToOne
-    @JoinColumn(name = "id_empresa")
-    private Contacto empresa;
+//    @ManyToOne
+//    @JoinColumn(name = "id_empresa")
+//    private Contacto empresa;
 
     public Long getId() {
         return id;
@@ -130,13 +130,13 @@ public class Contacto implements Serializable {
         this.telefono = telefono;
     }
 
-    public Contacto getEmpresa() {
-        return empresa;
-    }
-
-    public void setEmpresa(Contacto empresa) {
-        this.empresa = empresa;
-    }
+//    public Contacto getEmpresa() {
+//        return empresa;
+//    }
+//
+//    public void setEmpresa(Contacto empresa) {
+//        this.empresa = empresa;
+//    }
 
     public String getEmail() {
         return email;
@@ -169,6 +169,6 @@ public class Contacto implements Serializable {
     public void setWebsite(String website) {
         this.website = website;
     }
-    @OneToMany(mappedBy = "prospectoVenta", fetch = FetchType.LAZY)
-    private List<Contacto> contacto;
+    @OneToMany(mappedBy = "contacto", fetch = FetchType.LAZY)
+    private List<ProspectoVenta> prospectoVenta;
 }

@@ -83,6 +83,6 @@ public class Campania implements Serializable {
         this.estado = estado;
     }
 
-    @OneToMany(mappedBy = "prospectoVenta", fetch=FetchType.LAZY)
-    private List<Campania> campania;
+    @OneToMany(mappedBy = "campania")
+    private List<ProspectoVenta> prospectoVenta;
 }

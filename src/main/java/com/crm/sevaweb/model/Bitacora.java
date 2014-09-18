@@ -4,9 +4,13 @@
  */
 package com.crm.sevaweb.model;
 
+
 import java.io.Serializable;
+
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -26,38 +30,29 @@ import javax.persistence.Temporal;
 @Table(name = "bitacora")
 public class Bitacora implements Serializable {
 
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
     private Long id;
     
-    @Column(name = "tipo")
     private String tipo;
     
-    @Column(name = "fecha_hora")
-    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fecha_hora;
     
-    @Column(name = "fecha_registro")
-    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fecha_registro;
     
-    @Column(name = "email")
     private String email;
     
-    @Column(name = "telefono")
     private String telefono;
     
-    @Column(name = "comentario")
     private String comentario;
     
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_prospecto")
     private ProspectoVenta prospectoVenta;
     
-    @OneToMany(mappedBy = "Archivo", fetch = FetchType.LAZY)
-    private List<Bitacora> bitacora;
 
+    private Set<Archivo> archivo = new  HashSet<Archivo>(0);
+
+
+@Id
+    @GeneratedValue
+    @Column(name = "id")
     public Long getId() {
         return id;
     }
@@ -66,6 +61,7 @@ public class Bitacora implements Serializable {
         this.id = id;
     }
 
+@Column(name = "tipo")
     public String getTipo() {
         return tipo;
     }
@@ -74,6 +70,8 @@ public class Bitacora implements Serializable {
         this.tipo = tipo;
     }
 
+@Column(name = "fecha_hora")
+    @Temporal(javax.persistence.TemporalType.DATE)
     public Date getFecha_hora() {
         return fecha_hora;
     }
@@ -82,6 +80,8 @@ public class Bitacora implements Serializable {
         this.fecha_hora = fecha_hora;
     }
 
+@Column(name = "fecha_registro")
+    @Temporal(javax.persistence.TemporalType.DATE)
     public Date getFecha_registro() {
         return fecha_registro;
     }
@@ -90,6 +90,7 @@ public class Bitacora implements Serializable {
         this.fecha_registro = fecha_registro;
     }
 
+@Column(name = "email")
     public String getEmail() {
         return email;
     }
@@ -98,6 +99,7 @@ public class Bitacora implements Serializable {
         this.email = email;
     }
 
+@Column(name = "telefono")
     public String getTelefono() {
         return telefono;
     }
@@ -106,6 +108,7 @@ public class Bitacora implements Serializable {
         this.telefono = telefono;
     }
 
+@Column(name = "comentario")
     public String getComentario() {
         return comentario;
     }
@@ -114,6 +117,8 @@ public class Bitacora implements Serializable {
         this.comentario = comentario;
     }
 
+@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_prospecto")
     public ProspectoVenta getProspectoVenta() {
         return prospectoVenta;
     }
@@ -121,15 +126,13 @@ public class Bitacora implements Serializable {
     public void setProspectoVenta(ProspectoVenta prospectoVenta) {
         this.prospectoVenta = prospectoVenta;
     }
-
-    public List<Bitacora> getBitacora() {
-        return bitacora;
+    
+    @OneToMany(mappedBy = "bitacora")
+    public Set<Archivo> getArchivo() {
+        return archivo;
     }
 
-    public void setBitacora(List<Bitacora> bitacora) {
-        this.bitacora = bitacora;
+    public void setArchivo(Set<Archivo> archivo) {
+        this.archivo = archivo;
     }
-    
-    
-    
 }
