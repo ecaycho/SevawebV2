@@ -8,9 +8,6 @@ package com.crm.sevaweb.model;
 import java.io.Serializable;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -18,7 +15,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 
@@ -44,13 +40,7 @@ public class Bitacora implements Serializable {
     
     private String comentario;
     
-//    @OneToMany(mappedBy = "bitacora")
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_prospecto")
     private ProspectoVenta prospectoVenta;
-
-   private Set<Archivo> archivo = new  HashSet<Archivo>(0);
-
 
     @Id
     @GeneratedValue
@@ -118,7 +108,8 @@ public class Bitacora implements Serializable {
     public void setComentario(String comentario) {
         this.comentario = comentario;
     }
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_prospecto")
     public ProspectoVenta getProspectoVenta() {
         return prospectoVenta;
     }
@@ -126,13 +117,5 @@ public class Bitacora implements Serializable {
     public void setProspectoVenta(ProspectoVenta prospectoVenta) {
         this.prospectoVenta = prospectoVenta;
     }
-    
 
-    public Set<Archivo> getArchivo() {
-        return archivo;
-    }
-
-    public void setArchivo(Set<Archivo> archivo) {
-        this.archivo = archivo;
-    }
 }
