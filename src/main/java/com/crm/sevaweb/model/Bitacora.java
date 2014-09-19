@@ -44,13 +44,15 @@ public class Bitacora implements Serializable {
     
     private String comentario;
     
+//    @OneToMany(mappedBy = "bitacora")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_prospecto")
     private ProspectoVenta prospectoVenta;
-    
 
-    private Set<Archivo> archivo = new  HashSet<Archivo>(0);
+   private Set<Archivo> archivo = new  HashSet<Archivo>(0);
 
 
-@Id
+    @Id
     @GeneratedValue
     @Column(name = "id")
     public Long getId() {
@@ -108,7 +110,7 @@ public class Bitacora implements Serializable {
         this.telefono = telefono;
     }
 
-@Column(name = "comentario")
+    @Column(name = "comentario")
     public String getComentario() {
         return comentario;
     }
@@ -117,8 +119,6 @@ public class Bitacora implements Serializable {
         this.comentario = comentario;
     }
 
-@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_prospecto")
     public ProspectoVenta getProspectoVenta() {
         return prospectoVenta;
     }
@@ -127,7 +127,7 @@ public class Bitacora implements Serializable {
         this.prospectoVenta = prospectoVenta;
     }
     
-    @OneToMany(mappedBy = "bitacora")
+
     public Set<Archivo> getArchivo() {
         return archivo;
     }
