@@ -44,6 +44,6 @@ public class Categoria implements Serializable {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-//    @OneToMany(mappedBy = "prospectoVenta", fetch = FetchType.LAZY)
-//    private List<Categoria> categoria;
+    @OneToMany(mappedBy = "categoria", fetch = FetchType.LAZY)
+    private List<ProspectoVenta> prospectoVenta;
 }

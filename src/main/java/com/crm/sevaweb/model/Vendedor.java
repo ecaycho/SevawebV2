@@ -51,6 +51,6 @@ public class Vendedor implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-//    @OneToMany(mappedBy = "prospectoVenta", fetch = FetchType.LAZY)
-//    private List<Vendedor> vendedor;
+    @OneToMany(mappedBy = "vendedor", fetch = FetchType.LAZY)
+    private List<ProspectoVenta> prospectoVenta;
 }

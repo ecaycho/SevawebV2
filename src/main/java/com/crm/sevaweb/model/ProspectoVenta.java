@@ -31,13 +31,13 @@ public class ProspectoVenta  {
     @JoinColumn(name = "id_contacto")
     private Contacto contacto;
     
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "id_vendedor")
-//    private Vendedor vendedor;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_vendedor")
+    private Vendedor vendedor;
     
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "id_categoria")
-//    private Categoria categoria;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_categoria")
+    private Categoria categoria;
     
 //    @OneToMany(mappedBy = "bitacora", fetch = FetchType.LAZY)
 //    private Set<Bitacora> bitacora;
