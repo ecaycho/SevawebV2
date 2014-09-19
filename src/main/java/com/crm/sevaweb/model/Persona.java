@@ -97,11 +97,28 @@ public class Persona implements Serializable {
         this.email = email;
     }
 
+
     @OneToOne(mappedBy="persona", fetch= FetchType.LAZY)
     private Usuario usuario;
     
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    
     @OneToMany(mappedBy="persona", fetch= FetchType.LAZY)
     private List<Vendedor> vendedor;    
-    
+
+    public List<Vendedor> getVendedor() {
+        return vendedor;
+    }
+
+    public void setVendedor(List<Vendedor> vendedor) {
+        this.vendedor = vendedor;
+    }
+
    
 }

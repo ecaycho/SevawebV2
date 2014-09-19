@@ -85,4 +85,14 @@ public class Campania implements Serializable {
 
     @OneToMany(mappedBy = "campania")
     private List<ProspectoVenta> prospectoVenta;
+
+    public List<ProspectoVenta> getProspectoVenta() {
+        return prospectoVenta;
+    }
+
+    public void setProspectoVenta(List<ProspectoVenta> prospectoVenta) {
+        this.prospectoVenta = prospectoVenta;
+    }
+    
+    
 }

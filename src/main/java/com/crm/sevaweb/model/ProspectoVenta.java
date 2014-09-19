@@ -99,6 +99,31 @@ public class ProspectoVenta  {
     public void setContacto(Contacto contacto) {
         this.contacto = contacto;
     }    
+
+    public Vendedor getVendedor() {
+        return vendedor;
+    }
+
+    public void setVendedor(Vendedor vendedor) {
+        this.vendedor = vendedor;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public Set<Bitacora> getBitacora() {
+        return bitacora;
+    }
+
+    public void setBitacora(Set<Bitacora> bitacora) {
+        this.bitacora = bitacora;
+    }
+
     
     
 }

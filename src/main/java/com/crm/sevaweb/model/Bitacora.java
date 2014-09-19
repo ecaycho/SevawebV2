@@ -8,6 +8,7 @@ package com.crm.sevaweb.model;
 import java.io.Serializable;
 
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,6 +16,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 
@@ -53,7 +55,7 @@ public class Bitacora implements Serializable {
         this.id = id;
     }
 
-@Column(name = "tipo")
+    @Column(name = "tipo")
     public String getTipo() {
         return tipo;
     }
@@ -62,7 +64,7 @@ public class Bitacora implements Serializable {
         this.tipo = tipo;
     }
 
-@Column(name = "fecha_hora")
+    @Column(name = "fecha_hora")
     @Temporal(javax.persistence.TemporalType.DATE)
     public Date getFecha_hora() {
         return fecha_hora;
@@ -72,7 +74,7 @@ public class Bitacora implements Serializable {
         this.fecha_hora = fecha_hora;
     }
 
-@Column(name = "fecha_registro")
+    @Column(name = "fecha_registro")
     @Temporal(javax.persistence.TemporalType.DATE)
     public Date getFecha_registro() {
         return fecha_registro;
@@ -82,7 +84,7 @@ public class Bitacora implements Serializable {
         this.fecha_registro = fecha_registro;
     }
 
-@Column(name = "email")
+    @Column(name = "email")
     public String getEmail() {
         return email;
     }
@@ -91,7 +93,7 @@ public class Bitacora implements Serializable {
         this.email = email;
     }
 
-@Column(name = "telefono")
+    @Column(name = "telefono")
     public String getTelefono() {
         return telefono;
     }
@@ -108,6 +110,7 @@ public class Bitacora implements Serializable {
     public void setComentario(String comentario) {
         this.comentario = comentario;
     }
+    
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_prospecto")
     public ProspectoVenta getProspectoVenta() {
@@ -117,5 +120,17 @@ public class Bitacora implements Serializable {
     public void setProspectoVenta(ProspectoVenta prospectoVenta) {
         this.prospectoVenta = prospectoVenta;
     }
+    
+    private List<Archivo> archivo; 
+
+    @OneToMany(mappedBy="bitacora", fetch= FetchType.LAZY)
+    public List<Archivo> getArchivo() {
+        return archivo;
+    }
+
+    public void setArchivo(List<Archivo> archivo) {
+        this.archivo = archivo;
+    }
+
 
 }
