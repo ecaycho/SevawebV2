@@ -22,4 +22,13 @@ public class LoginController {
     public String index(Model model){
         return "login";
     }
+    
+    
+    @RequestMapping("iniciarSesion")
+    public String LoginIn(){
+        
+        System.out.println("hola - adios 2");
+        
+        return "redirect:/adm/vendedor";
+    }
 }
