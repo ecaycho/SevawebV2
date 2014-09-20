@@ -8,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -24,7 +25,7 @@ public class Vendedor implements Serializable {
     @Column(name = "estado")
     private String estado;
     
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "id_persona")
     private Persona persona;
 
@@ -51,6 +52,18 @@ public class Vendedor implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+    
     @OneToMany(mappedBy = "vendedor", fetch = FetchType.LAZY)
     private List<ProspectoVenta> prospectoVenta;
+
+    public List<ProspectoVenta> getProspectoVenta() {
+        return prospectoVenta;
+    }
+
+    public void setProspectoVenta(List<ProspectoVenta> prospectoVenta) {
+        this.prospectoVenta = prospectoVenta;
+    }
+    
+    
+    
 }

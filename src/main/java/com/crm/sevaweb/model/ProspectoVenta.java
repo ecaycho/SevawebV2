@@ -39,8 +39,8 @@ public class ProspectoVenta  {
     @JoinColumn(name = "id_categoria")
     private Categoria categoria;
     
-//    @OneToMany(mappedBy = "bitacora", fetch = FetchType.LAZY)
-//    private Set<Bitacora> bitacora;
+    @OneToMany(mappedBy = "prospectoVenta", fetch = FetchType.LAZY)
+    private Set<Bitacora> bitacora;
 
     public Campania getCampania() {
         return campania;
@@ -99,6 +99,31 @@ public class ProspectoVenta  {
     public void setContacto(Contacto contacto) {
         this.contacto = contacto;
     }    
+
+    public Vendedor getVendedor() {
+        return vendedor;
+    }
+
+    public void setVendedor(Vendedor vendedor) {
+        this.vendedor = vendedor;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public Set<Bitacora> getBitacora() {
+        return bitacora;
+    }
+
+    public void setBitacora(Set<Bitacora> bitacora) {
+        this.bitacora = bitacora;
+    }
+
     
     
 }
