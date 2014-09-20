@@ -1,4 +1,7 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/public/css/bootstrap.min.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/public/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/public/css/basico.css">
+<link rel="shortcut icon" href="<%=request.getContextPath()%>/public/images/favicon.ico" type="image/x-icon" />
 <style>
             label{
                 display: block;
